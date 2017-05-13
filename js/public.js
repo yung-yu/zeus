@@ -6,13 +6,17 @@
 $(function () {
 	$('#button').click(function(){
 		console.log('checked');
-		for($i=0; $i<=4; $i++){
-			console.log('checked'+$i);
-			if($('#box'+$i).hasClass('checked')){
-	          $('#box'+$i).removeClass('checked');
-	        } else {
-	          $('#box'+$i).addClass('checked');
-	        }
-    	}
+		if($('.box').hasClass('checked')){
+			$('.box').removeClass('checked');
+		} else {
+
+			$('.box').addClass('checked');
+		}
+	});
+
+	$('#enter').click(function(){
+		console.log('get text'+$('#in').val());
+		var $text = $('#in').val();
+	    $('#items').append('<div >'+$text+"</div>");
 	});
 });

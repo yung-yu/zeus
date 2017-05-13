@@ -46,7 +46,15 @@ body {
     margin: 0 auto;
 }
 
-#box1, #box2, #box3, #box4{
+.section {
+    display: inline-block;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.box {
     display: inline-block;
     width: 100px;
     height: 100px;
@@ -55,6 +63,25 @@ body {
     &.checked {
         background-color: RGBA(102, 217, 239, 1.00);
     }
+   
+}
+
+#items{
+    display: inline-block;
+    width: 200px;
+    height: 100px;
+    
+
+   > div {
+       display: inline-block;
+       width: 100%;
+       text-align: center;
+       font-size: 16px;
+       background-color: RGBA(165, 220, 44, .5);
+       border: 1px  solid black;
+
+   }
+
 }
 
 
