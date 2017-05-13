@@ -17,7 +17,9 @@ $(function () {
 	$('#enter').click(function(){
 		console.log('get text'+$('#in').val());
 		var $text = $('#in').val();
-	    $('#items').append($('<div />').text($text));
+		if($text != ''){
+	    	$('#items').append($('<div/>').text($text));
+	    }
 	    $('#in').val('');
 	});
 });
