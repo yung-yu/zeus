@@ -5,46 +5,40 @@
 
 $(function () {
 	var count = 0;
+	var answer = parseInt(Math.random() * 100);
+	var min = 1;
+	var max = 100;
+	
+    console.log('answer '+answer);
 	$('#send').click(function(){
-		 var text = $('#edite').val();
-		 if(text != ''){
-			 var changeColorBtn = $('<label />').addClass('changeColor');
-			 var repairBtn = $('<label />').addClass('repair');
-			 var deleteBtn = $('<label />').addClass('delete');
-			$('#main .content').append(
-				$('<div />').addClass('item').append($('<label />').addClass('itemValue').text(text))
-				.append(
-				$('<div />').addClass('tools')
-				.append(changeColorBtn.text('變色'))
-				.append(repairBtn.text('修改'))
-				.append(deleteBtn.text('刪除'))
-				));
+		 var number = $('#edite').val();
+		 if(number != '' && number <= max && number >= min){
+		 	if(answer == number){
+		 		if(confirm('終極密碼! 答案：'+answer)){
+		 			min = 1;
+					max = 100;
+					$('#main .content').empty();
+					 answer = parseInt(Math.random() * 100);
+					 console.log('answer '+answer);
+		 		}
+		 	} else {
+		 		var text = '沒中～ 範圍在：';
+
+		 		if(number > answer){
+		 			max = number;
+		 			text += min+' ~ '+number;
+		 		} else {
+		 			min = number;
+		 			text +=  number+' ~ '+max;
+		 		}
+		 		$('#main .content').append(
+						$('<div />').addClass('item').append($('<label />').addClass('itemValue').text(text))
+					);
+		 	}	
+			
 			$('#edite').val('');
-
-			changeColorBtn.click(function(){
-		    	if($(this).parent().parent().hasClass('change')){
-		    		console.log('remove');
-		        	$(this).parent().parent().removeClass('change');
-		        } else {
-		        	console.log('add');
-					$(this).parent().parent().addClass('change');
-		        }
-		    });
-
-		   repairBtn.click(function(){
-		    	console.log('repair');
-		    	var newText = prompt('請輸入新的內容', '');
-	            if(newText){
-	            	console.log(newText);
-	            	$(this).parent().parent().children('.itemValue').text(newText);
-
-	            }
-		    	
-		    });
-
-		   deleteBtn.click(function(){
-		    	$(this).parent().parent().remove();
-		    });
+		} else {
+			alert('請輸入範圍在'+min+' ~ '+max);
 		}
 	});
 

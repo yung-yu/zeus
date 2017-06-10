@@ -109,39 +109,12 @@ $content_width: 700px;
           float: left;
           width: 500px;
           height: 40px;
-          text-align: left;
+          text-align: center;
           line-height: 40px;
 
         }
 
-        .tools {
-          display: inline-block;
-          float: left;
-          width: calc($content_width - 700px);
-          height: 40px;
-          line-height: 40px;
-
-          > label {
-              display: inline-block;
-              float: left;
-              width: calc(($content_width - 700px) / 3 - 1px);
-              height: 40px;
-              line-height: 40px;
-              cursor: pointer;
-              color: RGBA(80, 135, 244, 1.00);
-
-             &:after{
-                content: '|';
-                color:RGBA(219, 219, 219, 1.00);
-             }
-             &:nth-child(n+3){
-                &:after{
-                  content: '';
-                }
-             }
-
-          }
-        }
+      
 
       }
 
